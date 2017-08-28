@@ -6,6 +6,8 @@ Subject: [PATCH 10/39] fs: pstore: add eeprom-based pstore backend
 Some boards ship with an onboard I2C EEPROM that can be used to log
 crashes and such in between reboots.  This can be more reliable,
 especially when performing cold boots where the RAM contents can be lost.
+
+(GuzTech: modified to compile under 4.13-rc6)
 ---
  fs/pstore/Kconfig  |   8 +
  fs/pstore/Makefile |   3 +
@@ -388,12 +390,9 @@ index 000000000000..d4da19590cb8
 +	return eeprom_write_bucket(priv, bucket);
 +}
 +
-+static ssize_t eeprom_pstore_read(u64 *id, enum pstore_type_id *type,
-+				   int *count, struct timespec *time,
-+				   char **buf, bool *compressed,
-+				   struct pstore_info *psi)
++static ssize_t eeprom_pstore_read(struct pstore_record *record)
 +{
-+	struct eeprom_priv *priv = psi->data;
++	struct eeprom_priv *priv = record->psi->data;
 +	struct eeprom_bucket bucket;
 +	int err;
 +
@@ -403,33 +402,28 @@ index 000000000000..d4da19590cb8
 +
 +	if (err < 0)
 +		return 0;
-+
-+	*compressed = bucket.header.compressed;
-+	*time = bucket.header.time;
-+	*type = bucket.header.type;
-+	*id = bucket.id;
-+	*buf = bucket.data;
++	
++	record->compressed = bucket.header.compressed;
++	record->time = bucket.header.time;
++	record->type = bucket.header.type;
++	record->id = bucket.id;
++	record->buf = bucket.data;
 +
 +	return bucket.header.size;
 +}
 +
-+static int notrace eeprom_pstore_write_buf(enum pstore_type_id type,
-+					    enum kmsg_dump_reason reason,
-+					    u64 *id, unsigned int part,
-+					    const char *buf,
-+					    bool compressed, size_t size,
-+					    struct pstore_info *psi)
++static int notrace eeprom_pstore_write(struct pstore_record *record)
 +{
-+	struct eeprom_priv *priv = psi->data;
++	struct eeprom_priv *priv = record->psi->data;
 +	struct eeprom_bucket bucket;
 +	int ret;
 +
 +	dev_dbg(&priv->i2c->dev, "Considering writing record %d/%d part %d, %d bytes...\n",
-+			type, reason, part, size);
++			record->type, record->reason, record->part, record->size);
 +
-+	if ((type == PSTORE_TYPE_CONSOLE)
-+		|| (type == PSTORE_TYPE_FTRACE)
-+		|| (type == PSTORE_TYPE_DMESG && (reason == KMSG_DUMP_OOPS || reason == KMSG_DUMP_PANIC)))
++	if ((record->type == PSTORE_TYPE_CONSOLE)
++		|| (record->type == PSTORE_TYPE_FTRACE)
++		|| (record->type == PSTORE_TYPE_DMESG && (record->reason == KMSG_DUMP_OOPS || record->reason == KMSG_DUMP_PANIC)))
 +		;
 +	else {
 +		dev_dbg(&priv->i2c->dev, "Record is a type we don't care about\n");
@@ -447,10 +441,10 @@ index 000000000000..d4da19590cb8
 +		bucket.header.time.tv_nsec = 0;
 +	}
 +	
-+	bucket.header.type = type;
-+	bucket.header.compressed = compressed;
-+	bucket.header.size = size;
-+	bucket.data = (char *)buf;
++	bucket.header.type = record->type;
++	bucket.header.compressed = record->compressed;
++	bucket.header.size = record->size;
++	bucket.data = (char *)record->buf;
 +
 +	dev_dbg(&priv->i2c->dev, "Going to write it\n");
 +	ret = eeprom_write_next_bucket(priv, &bucket);
@@ -459,19 +453,18 @@ index 000000000000..d4da19590cb8
 +	return ret;
 +}
 +
-+static int eeprom_pstore_erase(enum pstore_type_id type, u64 id, int count,
-+				struct timespec time, struct pstore_info *psi)
++static int eeprom_pstore_erase(struct pstore_record *record)
 +{
-+	struct eeprom_priv *priv = psi->data;
++	struct eeprom_priv *priv = record->psi->data;
 +	struct i2c_client *i2c = priv->i2c;
 +	ulong offset;
 +	int ret;
 +	u8 buf[priv->eeprom_page_size];
 +
-+	dev_dbg(&i2c->dev, "Erasing record %lld\n", id);
++	dev_dbg(&i2c->dev, "Erasing record %lld\n", record->id);
 +	memset(buf, 0, sizeof(buf));
 +
-+	offset = id_to_offset(priv, id);
++	offset = id_to_offset(priv, record->id);
 +	ret = eeprom_write_page(priv, offset, sizeof(buf), buf);
 +	if (ret < 0) {
 +		dev_err(&i2c->dev, "Unable to erase page: %d\n", ret);
@@ -486,7 +479,7 @@ index 000000000000..d4da19590cb8
 +	.name	= "eepromoops",
 +	.open	= eeprom_pstore_open,
 +	.read	= eeprom_pstore_read,
-+	.write_buf	= eeprom_pstore_write_buf,
++	.write	= eeprom_pstore_write,
 +	.erase	= eeprom_pstore_erase,
 +};
 +
