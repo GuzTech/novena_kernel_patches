@@ -9,6 +9,7 @@ DisplayPort and Mini DisplayPort.
 Signed-off-by: Sean Cross <xobs@kosagi.com>
 
 (sakaki: hunks 1 and 2 modified for 4.7.2)
+(GuzTech: modified to compile under 4.13-rc6)
 ---
  drivers/gpu/drm/bridge/Kconfig  |  10 +
  drivers/gpu/drm/bridge/Makefile |   1 +
@@ -91,10 +92,10 @@ index 000000000000..ef0cbd319828
 +#include <linux/workqueue.h>
 +#include <drm/drm_panel.h>
 +
-+#include "drmP.h"
-+#include "drm_crtc.h"
-+#include "drm_crtc_helper.h"
-+#include "drm_atomic_helper.h"
++#include <drm/drmP.h>
++#include <drm/drm_crtc.h>
++#include <drm/drm_crtc_helper.h>
++#include <drm/drm_atomic_helper.h>
 +
 +struct it6251_bridge {
 +	struct drm_connector connector;
