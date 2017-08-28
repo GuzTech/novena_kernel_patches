@@ -1,0 +1,49 @@
+From dbce5e3b439ba0945ef6014a15c8aacf02a8b4b3 Mon Sep 17 00:00:00 2001
+From: Sean Cross <xobs@kosagi.com>
+Date: Wed, 10 Feb 2016 18:08:19 +0800
+Subject: [PATCH 29/39] DRM: imx: HACK: enable debug mode
+
+This enables debug mode for ldb, which seems to help the stability
+problems somewhat.
+
+Signed-off-by: Sean Cross <xobs@kosagi.com>
+---
+ drivers/gpu/drm/imx/imx-ldb.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/imx/imx-ldb.c b/drivers/gpu/drm/imx/imx-ldb.c
+index 8b05ecb8fdef..deffbacc0490 100644
+--- a/drivers/gpu/drm/imx/imx-ldb.c
++++ b/drivers/gpu/drm/imx/imx-ldb.c
+@@ -1,3 +1,4 @@
++#define DEBUG
+ /*
+  * i.MX drm driver - LVDS display bridge
+  *
+@@ -176,19 +177,19 @@ static void imx_ldb_set_clock(struct imx_ldb *ldb, int mux, int chno,
+ {
+ 	int ret;
+ 
+-	dev_dbg(ldb->dev, "%s: now: %ld want: %ld\n", __func__,
++	dev_dbg(ldb->dev, "%d:%s: now: %ld want: %ld\n", chno, __func__,
+ 			clk_get_rate(ldb->clk_pll[chno]), serial_clk);
+ 	clk_set_rate(ldb->clk_pll[chno], serial_clk);
+ 
+-	dev_dbg(ldb->dev, "%s after: %ld\n", __func__,
++	dev_dbg(ldb->dev, "%d:%s after: %ld\n", chno, __func__,
+ 			clk_get_rate(ldb->clk_pll[chno]));
+ 
+-	dev_dbg(ldb->dev, "%s: now: %ld want: %ld\n", __func__,
++	dev_dbg(ldb->dev, "%d:%s: now: %ld want: %ld\n", chno, __func__,
+ 			clk_get_rate(ldb->clk[chno]),
+ 			(long int)di_clk);
+ 	clk_set_rate(ldb->clk[chno], di_clk);
+ 
+-	dev_dbg(ldb->dev, "%s after: %ld\n", __func__,
++	dev_dbg(ldb->dev, "%d:%s after: %ld\n", chno, __func__,
+ 			clk_get_rate(ldb->clk[chno]));
+ 
+ 	/* set display clock mux to LDB input clock */
+-- 
+2.14.1
+

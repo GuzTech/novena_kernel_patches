@@ -1,0 +1,59 @@
+From 6e75723eab8ec6481af348bee57833cff30c9b0e Mon Sep 17 00:00:00 2001
+From: Sean Cross <xobs@kosagi.com>
+Date: Mon, 27 Apr 2015 10:40:13 +0800
+Subject: [PATCH 19/39] ASoC: es8328: Set clock rates when setting DAI format
+
+The clock rate should be set when the I2C devices is instantiated.
+However, there is a divide-by-two that gets stuck somewhere, which
+resets the clock rate.
+
+Set the clock rates again prior to setting everything up to get
+around this problem.
+
+Signed-off-by: Sean Cross <xobs@kosagi.com>
+
+(sakaki: upstream has changed a lot, clock reset code simplified)
+---
+ sound/soc/codecs/es8328.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/sound/soc/codecs/es8328.c b/sound/soc/codecs/es8328.c
+index ed7cc42d1ee2..ff16091496a6 100644
+--- a/sound/soc/codecs/es8328.c
++++ b/sound/soc/codecs/es8328.c
+@@ -474,6 +474,9 @@ static int es8328_startup(struct snd_pcm_substream *substream,
+ 	return 0;
+ }
+ 
++static int es8328_set_sysclk(struct snd_soc_dai *codec_dai,
++			     int clk_id, unsigned int freq, int dir);
++
+ static int es8328_hw_params(struct snd_pcm_substream *substream,
+ 	struct snd_pcm_hw_params *params,
+ 	struct snd_soc_dai *dai)
+@@ -484,6 +487,7 @@ static int es8328_hw_params(struct snd_pcm_substream *substream,
+ 	int reg;
+ 	int wl;
+ 	int ratio;
++	int clk_rate;
+ 
+ 	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
+ 		reg = ES8328_DACCONTROL2;
+@@ -492,8 +496,12 @@ static int es8328_hw_params(struct snd_pcm_substream *substream,
+ 
+ 	if (es8328->master) {
+ 		if (!es8328->sysclk_constraints) {
+-			dev_err(codec->dev, "No MCLK configured\n");
+-			return -EINVAL;
++			clk_rate = clk_get_rate(es8328->clk);
++			es8328_set_sysclk(dai, ES8328_MCLK, clk_rate, 0);
++			if (!es8328->sysclk_constraints) {
++				dev_err(codec->dev, "No MCLK configured\n");
++				return -EINVAL;
++			}
+ 		}
+ 
+ 		for (i = 0; i < es8328->sysclk_constraints->count; i++)
+-- 
+2.14.1
+

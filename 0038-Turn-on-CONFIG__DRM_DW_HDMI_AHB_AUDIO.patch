@@ -1,0 +1,26 @@
+From 9baafd8979f02d1a3682fd6053cc9aa3caf7fb16 Mon Sep 17 00:00:00 2001
+From: sakaki- <sakaki@deciban.com>
+Date: Mon, 28 Aug 2017 11:24:00 +0200
+Subject: [PATCH 38/39] Turn on CONFIG__DRM_DW_HDMI_AHB_AUDIO
+
+Without this, cannot play audio on HDMI monitors
+---
+ arch/arm/configs/novena_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/novena_defconfig b/arch/arm/configs/novena_defconfig
+index 6c08e3be9ff3..27c43be14176 100644
+--- a/arch/arm/configs/novena_defconfig
++++ b/arch/arm/configs/novena_defconfig
+@@ -3204,7 +3204,7 @@ CONFIG_DRM_BRIDGE=y
+ # Display Interface Bridges
+ #
+ CONFIG_DRM_DW_HDMI=y
+-# CONFIG_DRM_DW_HDMI_AHB_AUDIO is not set
++CONFIG_DRM_DW_HDMI_AHB_AUDIO=y
+ CONFIG_DRM_IT6251=y
+ # CONFIG_DRM_NXP_PTN3460 is not set
+ # CONFIG_DRM_PARADE_PS8622 is not set
+-- 
+2.14.1
+

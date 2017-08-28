@@ -1,0 +1,30 @@
+From 34d001719a305b7f4e5095027f64d6ce9fc7f6a8 Mon Sep 17 00:00:00 2001
+From: sakaki- <sakaki@deciban.com>
+Date: Mon, 28 Aug 2017 11:25:49 +0200
+Subject: [PATCH 39/39] Fix for Mozilla software with hardened kernel
+
+Turn on CONFIG_GRKERNSEC_OLD_ARM_USERLAND; without this Mozilla software
+such as firefox will segfault.
+
+See e.g. https://forums.grsecurity.net/viewtopic.php?f=3&t=4479
+
+This patch is not required for unhardened kernels (those without the
+Grsecurity patchset applied).
+---
+ arch/arm/configs/novena_defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm/configs/novena_defconfig b/arch/arm/configs/novena_defconfig
+index 27c43be14176..14e9c3f80390 100644
+--- a/arch/arm/configs/novena_defconfig
++++ b/arch/arm/configs/novena_defconfig
+@@ -5367,3 +5367,6 @@ CONFIG_FONT_8x16=y
+ # CONFIG_SG_SPLIT is not set
+ CONFIG_ARCH_HAS_SG_CHAIN=y
+ # CONFIG_VIRTUALIZATION is not set
++CONFIG_GRKERNSEC=y
++CONFIG_GRKERNSEC_CONFIG_CUSTOM=y
++CONFIG_GRKERNSEC_OLD_ARM_USERLAND=y
+-- 
+2.14.1
+

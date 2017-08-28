@@ -1,0 +1,32 @@
+From fa9d7a107dbefcbafd79149fbda6de5451ee0243 Mon Sep 17 00:00:00 2001
+From: Sean Cross <xobs@kosagi.com>
+Date: Fri, 14 Aug 2015 15:26:59 +0800
+Subject: [PATCH 08/39] arm: dts: Add cpufreq-cooling support to imx6q
+
+Add the appropriate cooling nodes to cpu0.
+
+Signed-off-by: Sean Cross <xobs@kosagi.com>
+
+(sakaki: first hunk deleted as already applied in 4.7.2)
+---
+ arch/arm/boot/dts/imx6q.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx6q.dtsi b/arch/arm/boot/dts/imx6q.dtsi
+index 90a741732f60..41cbc23f468c 100644
+--- a/arch/arm/boot/dts/imx6q.dtsi
++++ b/arch/arm/boot/dts/imx6q.dtsi
+@@ -54,6 +54,10 @@
+ 			arm-supply = <&reg_arm>;
+ 			pu-supply = <&reg_pu>;
+ 			soc-supply = <&reg_soc>;
++
++			cooling-min-level = <0>;
++			cooling-max-level = <3>;
++			#cooling-cells = <2>; /* min followed by max */
+ 		};
+ 
+ 		cpu@1 {
+-- 
+2.14.1
+

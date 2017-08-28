@@ -1,0 +1,47 @@
+From 47b1887a793844445f48e93b6fb74fbb72bfbfad Mon Sep 17 00:00:00 2001
+From: Sean Cross <xobs@kosagi.com>
+Date: Thu, 20 Feb 2014 15:21:16 +0800
+Subject: [PATCH 03/39] pwm: imx: Support very long period lengths
+
+The IMX PWM block supports using both the system clock and a 32 kHz
+clock for driving PWM events.  For very long period lengths, use the
+32 kHz clock instead of the high-speed clock.
+
+Signed-off-by: Sean Cross <xobs@kosagi.com>
+---
+ drivers/pwm/pwm-imx.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/pwm/pwm-imx.c b/drivers/pwm/pwm-imx.c
+index 2ba5c3a398ff..d5dd1a3190a5 100644
+--- a/drivers/pwm/pwm-imx.c
++++ b/drivers/pwm/pwm-imx.c
+@@ -169,7 +169,15 @@ static int imx_pwm_apply_v2(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	pwm_get_state(pwm, &cstate);
+ 
+ 	if (state->enabled) {
+-		c = clk_get_rate(imx->clk_per);
++		if (duty_ns > 100000) {
++			cr = MX3_PWMCR_CLKSRC_IPG_32K;
++			c = 32768;
++		}
++		else {
++			cr = MX3_PWMCR_CLKSRC_IPG_HIGH;
++			c = clk_get_rate(imx->clk_per);
++			dev_dbg(chip->dev, "Clock rate: %lld\n", c);
++		}
+ 		c *= state->period;
+ 
+ 		do_div(c, 1000000000);
+@@ -211,7 +219,7 @@ static int imx_pwm_apply_v2(struct pwm_chip *chip, struct pwm_device *pwm,
+ 
+ 		cr = MX3_PWMCR_PRESCALER(prescale) |
+ 		     MX3_PWMCR_DOZEEN | MX3_PWMCR_WAITEN |
+-		     MX3_PWMCR_DBGEN | MX3_PWMCR_CLKSRC_IPG_HIGH |
++		     MX3_PWMCR_DBGEN |
+ 		     MX3_PWMCR_EN;
+ 
+ 		if (state->polarity == PWM_POLARITY_INVERSED)
+-- 
+2.14.1
+
