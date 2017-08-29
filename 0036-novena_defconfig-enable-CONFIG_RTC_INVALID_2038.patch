@@ -1,7 +1,7 @@
-From bda94a169dafa2e41984449cf63d418231424742 Mon Sep 17 00:00:00 2001
+From 190881c946b93736be6534705dfeed137fc6c61f Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 19 May 2016 12:49:49 +0800
-Subject: [PATCH 37/39] novena_defconfig: enable CONFIG_RTC_INVALID_2038
+Subject: [PATCH 36/39] novena_defconfig: enable CONFIG_RTC_INVALID_2038
 
 This is in an effort to fix the systemd boot bug.
 

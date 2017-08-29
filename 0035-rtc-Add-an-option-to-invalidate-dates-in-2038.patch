@@ -1,7 +1,7 @@
-From 5dfba5d7dcc3f0c0645c9352f732302e0e167898 Mon Sep 17 00:00:00 2001
+From 61b884092206c05c5a1373fc6bd820a07971f0b4 Mon Sep 17 00:00:00 2001
 From: Alexandre Belloni <alexandre.belloni@free-electrons.com>
 Date: Sat, 20 Feb 2016 04:54:58 +0100
-Subject: [PATCH 36/39] rtc: Add an option to invalidate dates in 2038
+Subject: [PATCH 35/39] rtc: Add an option to invalidate dates in 2038
 
 hctosys is setting the system time from the kernel. This means that 32bit
 system can get their time set to a date after the 31bit time_t overflow.

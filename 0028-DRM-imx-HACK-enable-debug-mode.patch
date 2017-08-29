@@ -1,7 +1,7 @@
-From dbce5e3b439ba0945ef6014a15c8aacf02a8b4b3 Mon Sep 17 00:00:00 2001
+From c2a752c769f0045f057a51c720834e4b98ddb0c0 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Wed, 10 Feb 2016 18:08:19 +0800
-Subject: [PATCH 29/39] DRM: imx: HACK: enable debug mode
+Subject: [PATCH 28/39] DRM: imx: HACK: enable debug mode
 
 This enables debug mode for ldb, which seems to help the stability
 problems somewhat.

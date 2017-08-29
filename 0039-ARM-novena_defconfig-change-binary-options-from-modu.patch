@@ -1,0 +1,56 @@
+From 21482b5134e3a2e85ac7073a7f11979d21f146f8 Mon Sep 17 00:00:00 2001
+From: Oguz Meteer <info@guztech.nl>
+Date: Tue, 29 Aug 2017 15:40:54 +0200
+Subject: [PATCH 39/39] ARM: novena_defconfig: change binary options from
+ module to built-in
+
+This changes options to create modules to include them in the kernel.
+
+Signed-off-by: Oguz Meteer <info@guztech.nl>
+---
+ arch/arm/configs/novena_defconfig | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm/configs/novena_defconfig b/arch/arm/configs/novena_defconfig
+index 14e9c3f80390..a5f6dc53a478 100644
+--- a/arch/arm/configs/novena_defconfig
++++ b/arch/arm/configs/novena_defconfig
+@@ -854,10 +854,10 @@ CONFIG_NF_CONNTRACK_EVENTS=y
+ CONFIG_NF_CONNTRACK_TIMEOUT=y
+ CONFIG_NF_CONNTRACK_TIMESTAMP=y
+ CONFIG_NF_CONNTRACK_LABELS=y
+-CONFIG_NF_CT_PROTO_DCCP=m
++CONFIG_NF_CT_PROTO_DCCP=y
+ CONFIG_NF_CT_PROTO_GRE=m
+-CONFIG_NF_CT_PROTO_SCTP=m
+-CONFIG_NF_CT_PROTO_UDPLITE=m
++CONFIG_NF_CT_PROTO_SCTP=y
++CONFIG_NF_CT_PROTO_UDPLITE=y
+ CONFIG_NF_CONNTRACK_AMANDA=m
+ CONFIG_NF_CONNTRACK_FTP=m
+ CONFIG_NF_CONNTRACK_H323=m
+@@ -875,9 +875,9 @@ CONFIG_NF_CT_NETLINK_HELPER=m
+ CONFIG_NETFILTER_NETLINK_GLUE_CT=y
+ CONFIG_NF_NAT=m
+ CONFIG_NF_NAT_NEEDED=y
+-CONFIG_NF_NAT_PROTO_DCCP=m
+-CONFIG_NF_NAT_PROTO_UDPLITE=m
+-CONFIG_NF_NAT_PROTO_SCTP=m
++CONFIG_NF_NAT_PROTO_DCCP=y
++CONFIG_NF_NAT_PROTO_UDPLITE=y
++CONFIG_NF_NAT_PROTO_SCTP=y
+ CONFIG_NF_NAT_AMANDA=m
+ CONFIG_NF_NAT_FTP=m
+ CONFIG_NF_NAT_IRC=m
+@@ -4637,7 +4637,7 @@ CONFIG_EXT4_FS=y
+ CONFIG_EXT4_USE_FOR_EXT2=y
+ CONFIG_EXT4_FS_POSIX_ACL=y
+ CONFIG_EXT4_FS_SECURITY=y
+-CONFIG_EXT4_ENCRYPTION=m
++CONFIG_EXT4_ENCRYPTION=y
+ CONFIG_EXT4_FS_ENCRYPTION=y
+ # CONFIG_EXT4_DEBUG is not set
+ CONFIG_JBD2=y
+-- 
+2.14.1
+

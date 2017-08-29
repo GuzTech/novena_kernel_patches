@@ -1,7 +1,7 @@
-From b21c3034680c57619ecab5104689d93198b1f531 Mon Sep 17 00:00:00 2001
+From d52172f7a0927e12cea87825511ed149bf2b891e Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 15 Jan 2016 14:00:02 +0800
-Subject: [PATCH 27/39] of-thermal: support adding a hwmon device
+Subject: [PATCH 26/39] of-thermal: support adding a hwmon device
 
 By default, of-thermal doesn't add itself as an hwmon device.  Add
 a device tree option to enable this.

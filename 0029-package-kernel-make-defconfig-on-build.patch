@@ -1,7 +1,7 @@
-From 334731cb4c7faa3325b89f0a8ecfeaeb52a434ed Mon Sep 17 00:00:00 2001
+From e582db8e63069b4fbf4183a1e51dd77116bab604 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Wed, 10 Feb 2016 18:12:40 +0800
-Subject: [PATCH 30/39] package-kernel: make defconfig on build
+Subject: [PATCH 29/39] package-kernel: make defconfig on build
 
 This will ensure developers have the correct config file.
 

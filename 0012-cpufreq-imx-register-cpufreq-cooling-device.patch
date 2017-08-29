@@ -1,4 +1,4 @@
-From 1f9571dd69ddc45c6a26614e2887b117bd5687b1 Mon Sep 17 00:00:00 2001
+From ba0087c0d8e0b5d9fbaf99081ac33a324a27bd38 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 31 Dec 2015 15:14:37 +0800
 Subject: [PATCH 12/39] cpufreq: imx: register cpufreq cooling device
@@ -14,7 +14,7 @@ Signed-off-by: Sean Cross <xobs@kosagi.com>
  1 file changed, 26 insertions(+)
 
 diff --git a/drivers/cpufreq/imx6q-cpufreq.c b/drivers/cpufreq/imx6q-cpufreq.c
-index b6edd3ccaa55..b8028ad185a6 100644
+index b6edd3ccaa55..3fe8ffdcec99 100644
 --- a/drivers/cpufreq/imx6q-cpufreq.c
 +++ b/drivers/cpufreq/imx6q-cpufreq.c
 @@ -9,6 +9,7 @@

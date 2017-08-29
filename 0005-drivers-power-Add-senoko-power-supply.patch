@@ -1,4 +1,4 @@
-From 967dd9ae821784571103e6cc8474c725cdfbae1b Mon Sep 17 00:00:00 2001
+From 3ccb3ab8b115bfe3caa338031608d9a9df5dfaba Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 20 Nov 2014 18:35:34 +0800
 Subject: [PATCH 05/39] drivers: power: Add senoko power supply

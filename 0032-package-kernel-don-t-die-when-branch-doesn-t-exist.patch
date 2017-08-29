@@ -1,7 +1,7 @@
-From af194ff722b28edeb725e9286f433016be309f4a Mon Sep 17 00:00:00 2001
+From 7bff05682311dd746d3d848dc909f2661a04268c Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 11 Feb 2016 16:04:39 +0800
-Subject: [PATCH 33/39] package-kernel: don't die when branch doesn't exist
+Subject: [PATCH 32/39] package-kernel: don't die when branch doesn't exist
 
 The program removes the current branch as its first step.  If the
 branch doesn't exist, that's fine, continue anyway.

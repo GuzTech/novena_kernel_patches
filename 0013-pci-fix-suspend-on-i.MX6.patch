@@ -1,7 +1,7 @@
-From de36abac76c4d9c077600e621ff958f59d5bf9be Mon Sep 17 00:00:00 2001
+From a996666783b602abaca15154995e1672983817f3 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 1 Jan 2016 16:20:26 +0800
-Subject: [PATCH 14/39] pci: fix suspend on i.MX6
+Subject: [PATCH 13/39] pci: fix suspend on i.MX6
 
 Signed-off-by: Sean Cross <xobs@kosagi.com>
 ---

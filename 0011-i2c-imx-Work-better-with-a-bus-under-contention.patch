@@ -1,4 +1,4 @@
-From 3b66d5f95ddc3fd79c855480e179b1f39bc943c2 Mon Sep 17 00:00:00 2001
+From 02d3f68fd36495b20812ca04cbf0335e836b044d Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 31 Dec 2015 11:48:55 +0800
 Subject: [PATCH 11/39] i2c: imx: Work better with a bus under contention

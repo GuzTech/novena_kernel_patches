@@ -1,7 +1,7 @@
-From 050744518cb3d8478a7b88993e146ff0e98b60b0 Mon Sep 17 00:00:00 2001
+From 3b0d05df410156de2eb2d59cda0301cfef94fd16 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Tue, 14 Oct 2014 10:16:36 +0800
-Subject: [PATCH 21/39] scripts: builddeb: Allow specifying a package name
+Subject: [PATCH 20/39] scripts: builddeb: Allow specifying a package name
 
 We want to be able to upgrade kernel packages.  In order to do this, we
 need to have a consistent naming scheme, not one with the version number

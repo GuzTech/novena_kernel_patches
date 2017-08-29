@@ -1,7 +1,7 @@
-From 34d001719a305b7f4e5095027f64d6ce9fc7f6a8 Mon Sep 17 00:00:00 2001
+From 05eb051eb22b67c5e6ac65a32d55951c6ed6c9c7 Mon Sep 17 00:00:00 2001
 From: sakaki- <sakaki@deciban.com>
 Date: Mon, 28 Aug 2017 11:25:49 +0200
-Subject: [PATCH 39/39] Fix for Mozilla software with hardened kernel
+Subject: [PATCH 38/39] Fix for Mozilla software with hardened kernel
 
 Turn on CONFIG_GRKERNSEC_OLD_ARM_USERLAND; without this Mozilla software
 such as firefox will segfault.

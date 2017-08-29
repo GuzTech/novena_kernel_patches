@@ -1,7 +1,7 @@
-From d47b548413881660029a51b0de927a2180f04fd9 Mon Sep 17 00:00:00 2001
+From 223ff9b176205b1c393b9cd2fa1f6ad34b8bc010 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 8 Jan 2016 11:53:16 +0800
-Subject: [PATCH 20/39] spi: spidev: add novena to compatible list
+Subject: [PATCH 19/39] spi: spidev: add novena to compatible list
 
 The Novena FPGA is connected via SPI, and being an FPGA, it can
 be reconfigured to be anything.  Therefore, it is easiest to

@@ -1,7 +1,7 @@
-From d659d867a879bc242d06861d6306ab02ee30429c Mon Sep 17 00:00:00 2001
+From 45d274054851b161de82498d0744233ecb8d55fc Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Wed, 13 Jan 2016 17:29:41 +0800
-Subject: [PATCH 24/39] package-kernel: update to v4.4-novena-r2
+Subject: [PATCH 23/39] package-kernel: update to v4.4-novena-r2
 
 Signed-off-by: Sean Cross <xobs@kosagi.com>
 

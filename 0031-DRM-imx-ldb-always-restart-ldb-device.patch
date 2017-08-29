@@ -1,7 +1,7 @@
-From e7dbc8e9417ee5b3f7beb121cc2ff2c2551d0197 Mon Sep 17 00:00:00 2001
+From 61544aae2ae1d7cd8d55bea50c2289dce6f025db Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 11 Feb 2016 16:01:12 +0800
-Subject: [PATCH 32/39] DRM: imx: ldb: always restart ldb device
+Subject: [PATCH 31/39] DRM: imx: ldb: always restart ldb device
 
 Always write "0" to the ldb control registers before writing
 the actual, wanted values.

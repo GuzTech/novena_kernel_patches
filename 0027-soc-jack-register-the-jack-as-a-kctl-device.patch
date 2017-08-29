@@ -1,7 +1,7 @@
-From 89c57b26e79505c0424fc5b6d71b98e8675bd764 Mon Sep 17 00:00:00 2001
+From a157a4630a8b63ac459c9cb260ab7ee71b0fa4f1 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 15 Jan 2016 14:00:48 +0800
-Subject: [PATCH 28/39] soc: jack: register the jack as a kctl device
+Subject: [PATCH 27/39] soc: jack: register the jack as a kctl device
 
 We want pulseaudio to recognize the audio jack as a kctl device, so
 have soc devices register their jack as a kctl device.

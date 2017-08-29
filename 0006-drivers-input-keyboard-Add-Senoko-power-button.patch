@@ -1,4 +1,4 @@
-From 194c7ce4aefab7eb10993b7af3db766a3501e9d6 Mon Sep 17 00:00:00 2001
+From ffa34a23eab179a7dd52135c5aaeb24acddef826 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 23 Oct 2014 21:11:15 +0800
 Subject: [PATCH 06/39] drivers: input: keyboard: Add Senoko power button

@@ -1,7 +1,7 @@
-From 9117f555335ff1df7485179155e0405a7d8fe30c Mon Sep 17 00:00:00 2001
+From 214b5b0b007dbd0d52f482061309ae2adb1fd7be Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 19 Feb 2016 12:44:22 +0800
-Subject: [PATCH 35/39] serial: imx: hack to fix suspend/resume
+Subject: [PATCH 34/39] serial: imx: hack to fix suspend/resume
 
 This patch was NAKed by rmk, but it seems to do the job, so keep it
 around for now until a better solution is provided.

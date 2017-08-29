@@ -1,4 +1,4 @@
-From 603d03ce278d99acbeb4ea5682555294bc86aa17 Mon Sep 17 00:00:00 2001
+From d15f703f13cf5802a19f11feed2a48ae2ee4acd2 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Wed, 30 Dec 2015 12:19:59 +0800
 Subject: [PATCH 09/39] drm/bridge: it6251: add new lvds to dp converter
@@ -50,7 +50,7 @@ index defcf1e7ca1c..a735a9b62c78 100644
  obj-y += synopsys/
 diff --git a/drivers/gpu/drm/bridge/it6251.c b/drivers/gpu/drm/bridge/it6251.c
 new file mode 100644
-index 000000000000..ef0cbd319828
+index 000000000000..341409bbb1ba
 --- /dev/null
 +++ b/drivers/gpu/drm/bridge/it6251.c
 @@ -0,0 +1,755 @@

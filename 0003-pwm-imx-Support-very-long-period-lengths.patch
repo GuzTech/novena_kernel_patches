@@ -1,4 +1,4 @@
-From 47b1887a793844445f48e93b6fb74fbb72bfbfad Mon Sep 17 00:00:00 2001
+From 47bfa31e7165b3db643de77043169edc7d6ed520 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 20 Feb 2014 15:21:16 +0800
 Subject: [PATCH 03/39] pwm: imx: Support very long period lengths
@@ -13,7 +13,7 @@ Signed-off-by: Sean Cross <xobs@kosagi.com>
  1 file changed, 13 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/pwm/pwm-imx.c b/drivers/pwm/pwm-imx.c
-index 2ba5c3a398ff..d5dd1a3190a5 100644
+index 2ba5c3a398ff..6d3b6d3e5dea 100644
 --- a/drivers/pwm/pwm-imx.c
 +++ b/drivers/pwm/pwm-imx.c
 @@ -39,6 +39,7 @@

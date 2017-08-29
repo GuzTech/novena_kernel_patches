@@ -1,7 +1,7 @@
-From 08a6baad2d41139f0ec3c52b173634e3a7f87ab2 Mon Sep 17 00:00:00 2001
+From bf346fec5fd5e50d4b76cbd81063d17de31a7f19 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Wed, 13 Jan 2016 17:31:20 +0800
-Subject: [PATCH 25/39] package-kernel: don't allow building when tree is dirty
+Subject: [PATCH 24/39] package-kernel: don't allow building when tree is dirty
 
 When there are local changes, the package won't accurately reflect what's
 in the repo.  This is a bad thing.  It also leads to version numbers with

@@ -1,4 +1,4 @@
-From bc1d9eb8e4ea96d97bad5e88a546fd272f89d92f Mon Sep 17 00:00:00 2001
+From 0ee083a1533b69b84ef1c85314a047f696fd6fd7 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Wed, 12 Aug 2015 17:50:14 +0800
 Subject: [PATCH 07/39] arm: dts: imx6qdl: Add cell count to thermal node

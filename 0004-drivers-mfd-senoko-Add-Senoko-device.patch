@@ -1,4 +1,4 @@
-From 6543d8994c8c0a7b0f01de0b955f8092bb7efcc2 Mon Sep 17 00:00:00 2001
+From db5f76bd73a074791efa64e19d30885b226c7330 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 23 Oct 2014 21:10:44 +0800
 Subject: [PATCH 04/39] drivers: mfd: senoko: Add Senoko device

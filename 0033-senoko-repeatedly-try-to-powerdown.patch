@@ -1,7 +1,7 @@
-From 5d9ba328d2255ab7a12fc406624d8aec8743a328 Mon Sep 17 00:00:00 2001
+From f83f825bc5f8b6dcf0da1bfd16f208f441dfd25e Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 19 Feb 2016 12:11:03 +0800
-Subject: [PATCH 34/39] senoko: repeatedly try to powerdown
+Subject: [PATCH 33/39] senoko: repeatedly try to powerdown
 
 If the bus is busy, the powerdown message will fail.  Bus contention can
 cause the STM32 I2C block to lock up.

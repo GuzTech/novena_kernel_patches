@@ -1,4 +1,4 @@
-From fa9d7a107dbefcbafd79149fbda6de5451ee0243 Mon Sep 17 00:00:00 2001
+From 80aad4bcaace143cd9028f29e9001597c5624f64 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 14 Aug 2015 15:26:59 +0800
 Subject: [PATCH 08/39] arm: dts: Add cpufreq-cooling support to imx6q

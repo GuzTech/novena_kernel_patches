@@ -1,4 +1,4 @@
-From b2a3c7d0be70ccf793bdfdf12b4b165e90854775 Mon Sep 17 00:00:00 2001
+From 5fd4235c15890245b4640d1c075fe8264031f613 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Mon, 22 Dec 2014 13:59:58 +0800
 Subject: [PATCH 01/39] drm/panel: simple: Add Innolux N133HSE panel support

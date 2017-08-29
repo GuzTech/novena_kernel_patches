@@ -1,7 +1,7 @@
-From e815edb46cdedfacfc5eac79bf664a184bf03c14 Mon Sep 17 00:00:00 2001
+From aa4e2bb696eaef897beedaa67a2269543fe0e13b Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 10 Oct 2014 16:32:11 +0800
-Subject: [PATCH 18/39] scripts: Add custom destdir parameter
+Subject: [PATCH 17/39] scripts: Add custom destdir parameter
 
 We don't want packages installed to /boot since it's FAT-formatted.
 Instead, our diversion script as part of U-Boot will take care of that.

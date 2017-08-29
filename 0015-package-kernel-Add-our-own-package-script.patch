@@ -1,7 +1,7 @@
-From 5e192f919fefbd2361aa7ae5c3ba4e09bba48518 Mon Sep 17 00:00:00 2001
+From fadf6e717b8d3b7dcbd0a34741ebce51ca47c2c5 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Mon, 16 Nov 2015 14:12:26 +0800
-Subject: [PATCH 16/39] package-kernel: Add our own package script
+Subject: [PATCH 15/39] package-kernel: Add our own package script
 
 This script is used by Kosagi to package kernels for Novena.
 

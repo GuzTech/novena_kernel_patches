@@ -1,7 +1,7 @@
-From 8b0ce89304414527c69a4a1a3b7be50fded9362a Mon Sep 17 00:00:00 2001
+From 7b7adb0b6b707753d4d400845fbb397618ee62ff Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 11 Feb 2016 16:00:34 +0800
-Subject: [PATCH 31/39] DRM: bridge: it6251: always recalibrate on boot
+Subject: [PATCH 30/39] DRM: bridge: it6251: always recalibrate on boot
 
 Ignore the "is_stable()" check on boot, because sometimes it's
 invalid.  Recalibrate always.
@@ -12,7 +12,7 @@ Signed-off-by: Sean Cross <xobs@kosagi.com>
  1 file changed, 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/it6251.c b/drivers/gpu/drm/bridge/it6251.c
-index ef0cbd319828..027249237237 100644
+index 341409bbb1ba..519e3e724e56 100644
 --- a/drivers/gpu/drm/bridge/it6251.c
 +++ b/drivers/gpu/drm/bridge/it6251.c
 @@ -279,12 +279,6 @@ static int it6251_init(struct it6251_bridge *it6251)

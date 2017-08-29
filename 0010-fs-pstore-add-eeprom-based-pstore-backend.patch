@@ -1,4 +1,4 @@
-From 95b2737016ceb6483955b571807645e2b567e6ff Mon Sep 17 00:00:00 2001
+From a49947d72f3bf50cc18417b5faa39799cf6231a8 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Fri, 7 Feb 2014 11:48:24 +0800
 Subject: [PATCH 10/39] fs: pstore: add eeprom-based pstore backend
@@ -44,7 +44,7 @@ index b8803cc07fce..4575788f542a 100644
 +obj-$(CONFIG_PSTORE_EEPROM)	+= eepromoops.o
 diff --git a/fs/pstore/eeprom.c b/fs/pstore/eeprom.c
 new file mode 100644
-index 000000000000..d4da19590cb8
+index 000000000000..ce63a5442243
 --- /dev/null
 +++ b/fs/pstore/eeprom.c
 @@ -0,0 +1,545 @@

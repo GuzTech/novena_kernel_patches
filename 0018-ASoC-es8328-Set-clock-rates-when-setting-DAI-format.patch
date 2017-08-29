@@ -1,7 +1,7 @@
-From 6e75723eab8ec6481af348bee57833cff30c9b0e Mon Sep 17 00:00:00 2001
+From e8547e78110c4f009eacd2ea5e7502fd5af414e7 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Mon, 27 Apr 2015 10:40:13 +0800
-Subject: [PATCH 19/39] ASoC: es8328: Set clock rates when setting DAI format
+Subject: [PATCH 18/39] ASoC: es8328: Set clock rates when setting DAI format
 
 The clock rate should be set when the I2C devices is instantiated.
 However, there is a divide-by-two that gets stuck somewhere, which
@@ -19,7 +19,7 @@ Signed-off-by: Sean Cross <xobs@kosagi.com>
  1 file changed, 10 insertions(+), 2 deletions(-)
 
 diff --git a/sound/soc/codecs/es8328.c b/sound/soc/codecs/es8328.c
-index ed7cc42d1ee2..ff16091496a6 100644
+index ed7cc42d1ee2..77faecdd74d6 100644
 --- a/sound/soc/codecs/es8328.c
 +++ b/sound/soc/codecs/es8328.c
 @@ -474,6 +474,9 @@ static int es8328_startup(struct snd_pcm_substream *substream,

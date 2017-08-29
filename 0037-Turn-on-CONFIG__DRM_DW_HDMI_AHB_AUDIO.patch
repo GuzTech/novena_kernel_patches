@@ -1,7 +1,7 @@
-From 9baafd8979f02d1a3682fd6053cc9aa3caf7fb16 Mon Sep 17 00:00:00 2001
+From 533e5ab1d3903ecfc0c95bebdac7344e0bffa212 Mon Sep 17 00:00:00 2001
 From: sakaki- <sakaki@deciban.com>
 Date: Mon, 28 Aug 2017 11:24:00 +0200
-Subject: [PATCH 38/39] Turn on CONFIG__DRM_DW_HDMI_AHB_AUDIO
+Subject: [PATCH 37/39] Turn on CONFIG__DRM_DW_HDMI_AHB_AUDIO
 
 Without this, cannot play audio on HDMI monitors
 ---

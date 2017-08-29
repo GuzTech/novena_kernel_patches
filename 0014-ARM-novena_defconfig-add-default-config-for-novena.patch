@@ -1,7 +1,7 @@
-From 1cc4407b71cd81adbb919891fe72c1987ba0bff2 Mon Sep 17 00:00:00 2001
+From 28f82b70597ead22077d270863fff2968d190672 Mon Sep 17 00:00:00 2001
 From: Sean Cross <xobs@kosagi.com>
 Date: Thu, 31 Dec 2015 15:39:26 +0800
-Subject: [PATCH 15/39] ARM: novena_defconfig: add default config for novena
+Subject: [PATCH 14/39] ARM: novena_defconfig: add default config for novena
 
 This adds a device-specific defconfig for the Novena platform.
 
