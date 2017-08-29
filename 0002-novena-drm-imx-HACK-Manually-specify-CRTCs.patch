@@ -23,12 +23,12 @@ index b62763aa8706..04e55963beb1 100644
 +++ b/drivers/gpu/drm/imx/dw_hdmi-imx.c
 @@ -222,6 +222,10 @@ static int dw_hdmi_imx_bind(struct device *dev, struct device *master,
  	encoder = &hdmi->encoder;
- 
+
  	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
 +
 +	/* Hack: Only use IPU2 */
 +	encoder->possible_crtcs &= 0x0c;
-+	
++
  	/*
  	 * If we failed to find the CRTC(s) which this encoder is
  	 * supposed to be connected to, it's because the CRTC has
@@ -37,15 +37,15 @@ index 95e2181963d9..e90e07128892 100644
 --- a/drivers/gpu/drm/imx/imx-drm-core.c
 +++ b/drivers/gpu/drm/imx/imx-drm-core.c
 @@ -164,6 +164,9 @@ int imx_drm_encoder_parse_of(struct drm_device *drm,
- 
+
  	encoder->possible_crtcs = crtc_mask;
- 
+
 +	/* Hack: Only allow these devices to use IPU1 */
 +	encoder->possible_crtcs &= 0x03;
 +
  	/* FIXME: this is the mask of outputs which can clone this output. */
  	encoder->possible_clones = ~0;
- 
+
 -- 
 2.14.1
 
